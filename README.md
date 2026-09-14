@@ -120,7 +120,8 @@ The Obsidian vault is in the repo on purpose. Each usage surface was torn down a
 | Watch | Wear OS 5+ (`minSdk` 34) |
 
 ```bash
-# from the root of this repository
+git clone https://github.com/ericpeck/AI-Subscription-Usage-Monitor-Public.git
+cd AI-Subscription-Usage-Monitor-Public
 ./gradlew :app:assembleDebug
 ```
 
@@ -159,7 +160,7 @@ Do not attach live tokens, raw HAR files, login captures, cookie dumps, or real 
 
 ## About this repository
 
-This repository begins from a reviewed source snapshot of AI-SUM and is initialized with new Git history. It does not include the original development commits, pull requests, or private issue discussion.
+This repository begins from a reviewed source snapshot of AI-SUM and is initialized with new Git history. It does not include the original private development commits, pull requests, or issue discussion.
 
 ## License
 

@@ -23,7 +23,7 @@ Every usage window shows two quantities on one bar: **fill** (how much of the al
 
 | | |
 |---|---|
-| GitHub | This independently initialized snapshot (name chosen at publication) |
+| GitHub | [ericpeck/AI-Subscription-Usage-Monitor-Public](https://github.com/ericpeck/AI-Subscription-Usage-Monitor-Public) |
 | Local Android Studio folder | `AISUM` |
 | Package | `com.ericmbpeck.ai_sum` |
 | **Launcher / app name** | **AI-SUM** (Eric's call, 2026-09-04) |
@@ -113,7 +113,7 @@ In-memory `FakeAccountStore` is **seeded from `filesDir/accounts.json`** at proc
 
 Do **not** "fix" `compileSdk` 37 or daemon JVM 25 back to the outline unasked.
 
-GitHub: this snapshot repository. Feature work ships as PRs (see *Workflow*). Never commit to `main`. Eric merges. The original private development history is not imported here.
+GitHub: [ericpeck/AI-Subscription-Usage-Monitor-Public](https://github.com/ericpeck/AI-Subscription-Usage-Monitor-Public). Feature work ships as PRs (see *Workflow*). Never commit to `main`. Eric merges. The original private development history is not imported here.
 
 ---
 
