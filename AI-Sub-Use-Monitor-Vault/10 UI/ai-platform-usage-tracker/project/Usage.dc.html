@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/broadsheet-536532c1-54a6-40b0-bc41-bcdfedd38be4/styles.css">
+<script src="_ds/broadsheet-536532c1-54a6-40b0-bc41-bcdfedd38be4/_ds_bundle.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+<style>
+body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body)}
+a{color:var(--color-accent);text-decoration:none}
+a:hover{color:var(--color-accent-600);text-decoration:underline}
+button{font-family:inherit}
+.u-scroll{scrollbar-width:none}
+.u-scroll::-webkit-scrollbar{width:0;height:0}
+</style>
+</helmet>
+
+<div style="min-height:100vh;padding:52px 56px 72px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap">
+
+  <div style="width:380px;flex:none">
+    <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700)">Android · v2, simplified</div>
+    <h1 style="font-size:46px;line-height:1.03;letter-spacing:-0.025em;margin:10px 0 14px">Am I near my limit?</h1>
+    <div style="height:3px;background:var(--color-text)"></div>
+    <div style="height:1px;background:var(--color-text);margin-top:2px"></div>
+    <p style="font-size:17px;line-height:1.6;margin-top:20px;text-wrap:pretty">One screen per subscription, following the shape of the app you showed me: a window, how much of it you have used, how much of the window is gone, and when it resets. Nothing else — charts come later.</p>
+
+    <h4 style="margin-top:24px">What changed from v1</h4>
+    <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:var(--color-neutral-800)">
+      <li>No spend, no head-to-head, no trends. Subscription limits only.</li>
+      <li>Tabs are platforms, exactly as in your reference — no dashboard above them.</li>
+      <li>Every window shows <strong>usage</strong> as the fill and <strong>time elapsed</strong> as a hairline. Fill ahead of the hairline means you are burning it faster than the clock.</li>
+      <li>Light paper instead of the dark reference: the design system has no dark surfaces.</li>
+      <li>Each platform carries its own hue — Claude coral, Gemini blue, ChatGPT green, Grok black, Cursor graphite — muted to the system's press register, with a deeper step for the display figure so it stays legible on paper.</li>
+    </ul>
+
+    <h4 style="margin-top:24px">Live here</h4>
+    <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:var(--color-neutral-800)">
+      <li>Five platform tabs; refresh in the masthead advances the clock and the bars</li>
+      <li>Tap a window for the plain-English read on pace</li>
+      <li>Gear opens settings: which subscriptions you hold, refresh cadence</li>
+    </ul>
+
+    <h4 style="margin-top:24px">Say the word and I add</h4>
+    <p style="font-size:14px;line-height:1.7;color:var(--color-neutral-800);margin:0">History charts per window, a home-screen widget for the session bar, and a notification when the fill passes the hairline by a set margin.</p>
+  </div>
+
+  <div style="flex:none">
+    <x-import component-from-global-scope="AndroidDevice" from="./android-frame.jsx" hint-size="428px,908px">
+      <div style="height:100%;display:flex;flex-direction:column;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);overflow:hidden">
+
+        <div style="flex:none;padding:2px 20px 0">
+          <div style="display:flex;align-items:center;gap:8px">
+            <h2 style="margin:0;font-size:32px;letter-spacing:-0.025em;flex:1">{{ title }}</h2>
+            <button onClick="{{ doRefresh }}" aria-label="Refresh" style="appearance:none;background:none;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--color-accent-700)">
+              <i class="ph-duotone ph-arrows-clockwise" style="font-size:22px"></i>
+            </button>
+            <button onClick="{{ toggleSettings }}" aria-label="Settings" style="appearance:none;background:none;border:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{ gearInk }}">
+              <i class="ph-duotone ph-gear-six" style="font-size:22px"></i>
+            </button>
+          </div>
+          <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-600);padding:2px 0 8px">{{ updated }}</div>
+          <div style="height:1px;background:var(--color-divider)"></div>
+        </div>
+
+        <div class="u-scroll" style="flex:1;overflow-y:auto;overflow-x:hidden">
+
+          <sc-if value="{{ isPlatform }}" hint-placeholder-val="{{ true }}">
+            <section data-screen-label="Platform limits" style="padding:20px 20px 28px">
+              <div style="font-size:13px;color:var(--color-neutral-700);padding-bottom:18px">{{ planLine }}</div>
+
+              <sc-for list="{{ windows }}" as="win" hint-placeholder-count="2">
+                <button onClick="{{ win.tap }}" style="appearance:none;background:none;border:0;width:100%;text-align:left;padding:0 0 26px;cursor:pointer;display:block">
+                  <div style="display:flex;align-items:baseline;gap:10px">
+                    <span style="font-family:var(--font-heading);font-weight:600;font-size:20px;letter-spacing:-0.01em">{{ win.name }}</span>
+                    <span style="margin-left:auto;font-family:var(--font-heading);font-weight:600;font-size:30px;letter-spacing:-0.02em;color:{{ win.numInk }};font-variant-numeric:tabular-nums;line-height:1">{{ win.usage }}</span>
+                  </div>
+                  <div style="height:10px;background:var(--color-neutral-200);position:relative;margin-top:12px">
+                    <div style="position:absolute;inset:0 auto 0 0;width:{{ win.usage }};background:{{ win.ink }};transition:width .35s"></div>
+                    <div style="position:absolute;top:-5px;bottom:-5px;width:1px;background:var(--color-text);left:{{ win.time }}"></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;gap:10px;padding-top:7px;font-size:12px;color:var(--color-neutral-700)">
+                    <span>{{ win.reset }}</span>
+                    <span>{{ win.timeLabel }}</span>
+                  </div>
+                  <sc-if value="{{ win.open }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;gap:10px;padding-top:12px">
+                      <div style="width:2px;background:{{ win.paceInk }};flex:none"></div>
+                      <p style="margin:0;font-style:italic;font-size:14px;line-height:1.5;color:var(--color-neutral-800);text-wrap:pretty">{{ win.pace }}</p>
+                    </div>
+                  </sc-if>
+                </button>
+              </sc-for>
+
+              <div style="height:1px;background:var(--color-divider);margin-top:2px"></div>
+              <p style="margin:14px 0 0;font-size:12px;color:var(--color-neutral-600);line-height:1.6">{{ foot }}</p>
+            </section>
+          </sc-if>
+
+          <sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+            <section data-screen-label="Settings" style="padding:20px 20px 28px">
+              <h4 style="margin:0 0 2px">Subscriptions you hold</h4>
+              <p style="font-size:12px;color:var(--color-neutral-700);margin:0 0 10px">Only these get a tab</p>
+              <sc-for list="{{ subs }}" as="sub" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:12px;padding:12px 0;min-height:60px;border-top:1px solid var(--color-divider)">
+                  <span style="width:10px;height:10px;background:{{ sub.ink }};flex:none"></span>
+                  <div style="flex:1;min-width:0">
+                    <div style="font-family:var(--font-heading);font-weight:600;font-size:17px">{{ sub.name }}</div>
+                    <div style="font-size:11px;color:var(--color-neutral-600)">{{ sub.plan }}</div>
+                  </div>
+                  <button onClick="{{ sub.toggle }}" role="switch" aria-checked="{{ sub.on }}" style="appearance:none;border:0;padding:0;width:52px;height:44px;display:flex;align-items:center;justify-content:flex-end;background:none;cursor:pointer">
+                    <span style="width:46px;height:24px;border-radius:12px;background:{{ sub.track }};position:relative;display:block;transition:background .18s">
+                      <span style="position:absolute;top:3px;left:{{ sub.knob }};width:18px;height:18px;border-radius:50%;background:var(--color-bg);box-shadow:var(--shadow-sm);transition:left .18s"></span>
+                    </span>
+                  </button>
+                </div>
+              </sc-for>
+              <div style="height:1px;background:var(--color-divider)"></div>
+
+              <h4 style="margin:22px 0 8px">Refresh</h4>
+              <div class="seg" style="width:100%">
+                <sc-for list="{{ cadenceOpts }}" as="cad" hint-placeholder-count="3">
+                  <label class="seg-opt" style="flex:1;justify-content:center;padding:8px 4px;font-size:12px;min-height:44px"><input type="radio" name="cadence" checked="{{ cad.on }}" onChange="{{ cad.pick }}"><span>{{ cad.label }}</span></label>
+                </sc-for>
+              </div>
+              <p style="margin:14px 0 0;font-size:12px;color:var(--color-neutral-700);line-height:1.6">Each provider's usage page is read with the session you signed in with, inside the app. Sessions and figures stay on this phone.</p>
+              <button onClick="{{ closeSettings }}" class="btn btn-primary btn-block" style="min-height:48px;margin-top:18px">Back to {{ activeName }}</button>
+            </section>
+          </sc-if>
+
+        </div>
+
+        <div style="flex:none;padding:0 8px 2px">
+          <div style="height:1px;background:var(--color-text)"></div>
+          <div style="height:3px;background:var(--color-text);margin-top:2px"></div>
+          <div style="display:flex">
+            <sc-for list="{{ tabList }}" as="navItem" hint-placeholder-count="5">
+              <button onClick="{{ navItem.go }}" style="appearance:none;background:none;border:0;flex:1;min-height:54px;padding:9px 2px 7px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;color:{{ navItem.ink }}">
+                <span style="font-family:var(--font-heading);font-weight:600;font-size:13px;letter-spacing:-0.01em">{{ navItem.name }}</span>
+                <span style="height:2px;width:18px;background:{{ navItem.rule }}"></span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+      </div>
+    </x-import>
+    <p style="max-width:428px;margin:16px 0 0;font-size:12px;color:var(--color-neutral-700);line-height:1.6">Tap a window for the pace read, refresh to advance the clock, gear for settings. Turning a subscription off in settings removes its tab.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:1000},&quot;startOn&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;claude&quot;,&quot;gemini&quot;,&quot;gpt&quot;,&quot;grok&quot;,&quot;cursor&quot;],&quot;default&quot;:&quot;claude&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Defaults&quot;},&quot;showPace&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Treatment&quot;}}">
+// Each platform's own hue, kept in the system's muted press register.
+// bar = the fill; text = a deeper step of the same hue so display figures
+// clear 3:1 on the paper ground.
+const INK = {
+  claude: { bar:'#d97757', text:'#b8552f' },   // Claude coral
+  gemini: { bar:'#4285f4', text:'#2f66c9' },   // Gemini blue
+  gpt:    { bar:'#10a37f', text:'#0b7d61' },   // OpenAI green
+  grok:   { bar:'#201e1d', text:'#201e1d' },   // Grok black
+  cursor: { bar:'#7d7979', text:'#4f4c4c' }    // Cursor graphite
+};
+
+const PLATFORMS = [
+  { id:'claude', name:'Claude', tab:'Claude', plan:'Max 5×', ink:INK.claude,
+    planLine:'Max 5× · rolling session and weekly caps',
+    foot:'Read from your Claude session on this phone. Session windows are five hours long and start with your first message.',
+    windows:[
+      { name:'Current session', usage:45, time:10, reset:'Resets in 4 hr 29 min' },
+      { name:'Weekly limit', usage:31, time:67, reset:'Resets Tue 7:00 AM' },
+      { name:'Weekly limit, Opus', usage:12, time:67, reset:'Resets Tue 7:00 AM' }
+    ] },
+  { id:'gemini', name:'Gemini', tab:'Gemini', plan:'AI Pro', ink:INK.gemini,
+    planLine:'AI Pro · Pro and Flash counted separately',
+    foot:'Read through the Google session already on this phone.',
+    windows:[
+      { name:'Current session, Pro', usage:26, time:71, reset:'Resets in 1 hr 25 min' },
+      { name:'Weekly limit, Pro', usage:18, time:33, reset:'Resets Thu 3:49 PM' },
+      { name:'Current session, Flash', usage:4, time:71, reset:'Resets in 1 hr 25 min' }
+    ] },
+  { id:'gpt', name:'ChatGPT', tab:'GPT', plan:'Plus', ink:INK.gpt,
+    planLine:'Plus · quotas per model family',
+    foot:'Plus counts reasoning models on their own weekly quota; everyday chat is unmetered.',
+    windows:[
+      { name:'Reasoning quota, weekly', usage:58, time:44, reset:'Resets Mon 9:00 AM' },
+      { name:'Image generation, daily', usage:20, time:52, reset:'Resets in 11 hr' }
+    ] },
+  { id:'grok', name:'Grok', tab:'Grok', plan:'SuperGrok', ink:INK.grok,
+    planLine:'SuperGrok · daily message cap',
+    foot:'The daily cap rolls at midnight local time.',
+    windows:[
+      { name:'Messages, daily', usage:11, time:52, reset:'Resets in 11 hr 28 min' },
+      { name:'Live search, daily', usage:6, time:52, reset:'Resets in 11 hr 28 min' }
+    ] },
+  { id:'cursor', name:'Cursor', tab:'Cursor', plan:'Pro', ink:INK.cursor,
+    planLine:'Pro · monthly requests, then metered',
+    foot:'Once the included requests run out, further use bills at the metered rate.',
+    windows:[
+      { name:'Included requests, month', usage:88, time:96, reset:'Resets 3 Sep' },
+      { name:'Fast requests, month', usage:64, time:96, reset:'Resets 3 Sep' }
+    ] }
+];
+
+class Component extends DCLogic {
+  state = { tab:null, settings:false, off:{}, bump:0, updated:'9 minutes ago', open:{}, cadence:'Hourly' };
+
+  live() { return PLATFORMS.filter(p => !this.state.off[p.id]); }
+  active() {
+    const live = this.live();
+    if (!live.length) return PLATFORMS[0];
+    const want = this.state.tab || this.props.startOn || 'claude';
+    return live.find(p => p.id === want) || live[0];
+  }
+
+  renderVals() {
+    const st = this.state, p = this.active(), live = this.live();
+    const pace = this.props.showPace ?? true;
+
+    const windows = p.windows.map((w, i) => {
+      const usage = Math.min(100, w.usage + st.bump * (i === 0 ? 4 : 1));
+      const time = Math.min(100, w.time + st.bump * (i === 0 ? 3 : 1));
+      const ahead = usage - time;
+      const key = p.id + i;
+      return {
+        name: w.name, usage: usage + '%', time: pace ? time + '%' : '-1%',
+        timeLabel: pace ? 'Window ' + time + '% elapsed' : '',
+        reset: w.reset,
+        ink: usage >= 90 ? 'var(--color-accent-2)' : p.ink.bar,
+        numInk: usage >= 90 ? 'var(--color-accent-2-700)' : p.ink.text,
+        open: !!st.open[key],
+        paceInk: ahead > 12 ? 'var(--color-accent-2)' : p.ink.bar,
+        pace: ahead > 12
+          ? 'Ahead of the clock by ' + Math.round(ahead) + ' points — at this rate you run out before it resets.'
+          : ahead < -12
+            ? 'Behind the clock by ' + Math.round(-ahead) + ' points. Plenty of room left in this window.'
+            : 'Tracking the clock almost exactly. This window should just about last.',
+        tap: () => this.setState(s => ({ open: Object.assign({}, s.open, { [key]: !s.open[key] }) }))
+      };
+    });
+
+    return {
+      title: st.settings ? 'Settings' : p.name,
+      activeName: p.name,
+      updated: st.settings ? String(live.length) + ' of 5 connected' : 'Last updated: ' + st.updated,
+      isPlatform: !st.settings, isSettings: st.settings,
+      gearInk: st.settings ? p.ink.text : 'var(--color-neutral-600)',
+      planLine: p.planLine, foot: p.foot,
+      windows,
+      doRefresh: () => this.setState(s => ({ updated:'just now', bump: (s.bump + 1) % 4 })),
+      toggleSettings: () => this.setState(s => ({ settings: !s.settings })),
+      closeSettings: () => this.setState({ settings:false }),
+      tabList: live.map(q => {
+        const on = q.id === p.id && !st.settings;
+        return { name: q.tab,
+          ink: on ? q.ink.text : 'var(--color-neutral-600)',
+          rule: on ? q.ink.bar : 'transparent',
+          go: () => this.setState({ tab:q.id, settings:false }) };
+      }),
+      subs: PLATFORMS.map(q => {
+        const on = !st.off[q.id];
+        return { name:q.name, plan:q.plan, on,
+          ink: on ? q.ink.bar : 'var(--color-neutral-300)',
+          track: on ? q.ink.bar : 'var(--color-neutral-300)',
+          knob: on ? '25px' : '3px',
+          toggle: () => this.setState(s => ({ off: Object.assign({}, s.off, { [q.id]: !s.off[q.id] }) })) };
+      }),
+      cadenceOpts: ['On open','Hourly','Daily'].map(c => ({
+        label:c, on: st.cadence === c, pick: () => this.setState({ cadence:c })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+---
+description: Prove a feature or fix works before pushing a PR. Do not ship untested code.
+alwaysApply: true
+---
+
+# Test before you push
+
+We do not ship untested code. **Pushing a PR is the last step.** Full rule: `AI-Sub-Use-Monitor-Vault/90 Agents/AGENTS.md` → *Workflow* → *Test before you push*.
+
+- Pure logic (mapper, store, formatter): a unit test that **failed before the fix**, then `./gradlew :app:testDebugUnitTest` green.
+- Product behaviour (screens, nav, persistence, sign-in, live-read): that **plus** the user path on an **emulator**. Force-stop/reopen when the bug is a later launch. Unit tests alone do not count.
+- Pin `ANDROID_SERIAL` to the emulator. Never use Eric's physical phone unless he names it.
+- If you cannot run the required check, **do not push**. Say what is blocked.
+- In the PR, list what you ran. Do not write "tested" when you only compiled.

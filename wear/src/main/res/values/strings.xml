@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AI-SUM</string>
+    <string name="watch_empty_headline">Nothing connected yet</string>
+    <string name="watch_empty_body">Add a subscription on your phone and it appears here.</string>
+    <string name="watch_open_on_phone">Open on phone</string>
+    <string name="watch_open_caption">Opens Usage on your phone</string>
+    <string name="watch_percent">%1$d%%</string>
+</resources>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="omelette-print-source" content="v1788218068356783 Screens Board.dc.html">
+<link rel="stylesheet" href="_ds/broadsheet-536532c1-54a6-40b0-bc41-bcdfedd38be4/styles.css">
+<script src="_ds/broadsheet-536532c1-54a6-40b0-bc41-bcdfedd38be4/_ds_bundle.js"></script>
+<script src="./doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+*{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}
+[data-fig]{break-inside:avoid}
+[data-sect]{break-before:page}
+[data-lede]{orphans:3;widows:3}
+</style>
+</helmet>
+
+<doc-page margin="0.75in">
+
+  <div style="font-size:9.5pt;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700)">Android · Wear OS · design review</div>
+  <h1 style="font-size:40pt;line-height:1.02;letter-spacing:-0.03em;margin:10pt 0 12pt">Usage Ledger</h1>
+  <div style="height:4px;background:var(--color-text)"></div>
+  <div style="height:1px;background:var(--color-text);margin-top:2px"></div>
+  <div style="display:flex;justify-content:space-between;gap:20pt;padding-top:7pt;font-size:9pt;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-700)">
+    <span>31 August 2026</span><span>Nine platforms</span><span>Phone and watch</span>
+  </div>
+  <div style="height:1px;background:var(--color-text);margin-top:7pt"></div>
+
+  <p data-lede style="font-size:13pt;line-height:1.55;margin-top:16pt">One screen per subscription, answering one question: am I near my limit? Every window shows two things — the fill is how much you have used, the hairline is how much of the window has elapsed. Fill ahead of the hairline means you are burning it faster than the clock.</p>
+  <p data-lede style="font-size:11pt;line-height:1.55;color:var(--color-neutral-800);margin-top:10pt">This is the screen record for the phone app and its Wear OS companion. Each screen carries the id it has on the design board, so a note against "4f" or "3g" points at one thing.</p>
+
+  <h2 style="font-size:19pt;letter-spacing:-0.02em;margin:22pt 0 3pt">Adding an Account</h2>
+  <p style="font-size:10.5pt;line-height:1.5;color:var(--color-neutral-700);margin:0 0 12pt">Linear, one account at a time. No tabs exist until something is added; afterwards the plus repeats the flow for the next one.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16pt 14pt">
+    <div data-fig>
+      <img src="screenshots/p-1a.png" alt="Empty state" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">1a</strong> Nothing connected</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-1b.png" alt="Platform ledger" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">1b</strong> Pick one, tick Work</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-1d.png" alt="In-app sign in" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">1d</strong> Sign in, in the app</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-1e.png" alt="First tab" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">1e</strong> It becomes a tab</div>
+    </div>
+  </div>
+
+  <h2 data-sect style="font-size:19pt;letter-spacing:-0.02em;margin:0 0 3pt">Settings and Information</h2>
+  <p style="font-size:10.5pt;line-height:1.5;color:var(--color-neutral-700);margin:0 0 12pt">The gear enters a settings mode that rides the same tab strip, so switching accounts keeps the same two controls in the same place. The plus becomes a minus; the i opens a page outside the tabs.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16pt 14pt">
+    <div data-fig>
+      <img src="screenshots/p-2a.png" alt="Personal settings" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">2a</strong> Personal account</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-2b.png" alt="Work settings" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">2b</strong> Work account</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-2c.png" alt="Remove confirmation" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">2c</strong> Remove asks first</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-2d.png" alt="Information page" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">2d</strong> Information</div>
+    </div>
+  </div>
+
+  <h2 data-sect style="font-size:19pt;letter-spacing:-0.02em;margin:0 0 3pt">Wear OS</h2>
+  <p style="font-size:10.5pt;line-height:1.5;color:var(--color-neutral-700);margin:0 0 12pt">The bar becomes an arc and the hairline a tick on it. Wear is dark-theme only, so every face is black with the platform hues lifted to their lighter, less saturated steps. Faces are drawn at the real 454px display inside the 539px skin.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16pt 14pt">
+    <div data-fig>
+      <img src="screenshots/w-3g.png" alt="Watch empty state" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">3g</strong> Nothing connected</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-3a.png" alt="Watch home" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">3a</strong> Two windows, two arcs</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-3c.png" alt="Reset notification" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">3c</strong> Reset notification</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-3f.png" alt="Three-session tile" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">3f</strong> Tile — three sessions</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-3e.png" alt="Card tile" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">3e</strong> Tile — one per card</div>
+    </div>
+    <div data-fig style="display:flex;align-items:center">
+      <p style="font-size:9.5pt;line-height:1.5;color:var(--color-neutral-800);margin:0">Tiles are ProtoLayout, not Compose — one screen, no scrolling, reached by swiping from the watch face. Both follow PrimaryLayout: title slot, main slot, one action below.</p>
+    </div>
+  </div>
+
+  <h2 data-sect style="font-size:19pt;letter-spacing:-0.02em;margin:0 0 3pt">The Platform Screens</h2>
+  <p style="font-size:10.5pt;line-height:1.5;color:var(--color-neutral-700);margin:0 0 12pt">One grammar across nine platforms — a colour means a platform everywhere in the app, and only the window names change. Grok carries a single limit split by use; Cursor is shown at 94%, past the alert threshold, where the breached window drops its hue for alarm red.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16pt 14pt">
+    <div data-fig>
+      <img src="screenshots/p-4a.png" alt="Claude" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4a</strong> Claude</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-4b.png" alt="Gemini" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4b</strong> Gemini</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-4c.png" alt="Codex" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4c</strong> Codex</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-4d.png" alt="Grok" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4d</strong> Grok — split by use</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-4e.png" alt="Perplexity" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4e</strong> Perplexity</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-4f.png" alt="Cursor" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4f</strong> Cursor — near limit</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-4g.png" alt="GitHub Copilot" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4g</strong> GitHub Copilot</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-4h.png" alt="Microsoft 365 Copilot" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4h</strong> Microsoft 365 · work</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/p-4i.png" alt="Grok Bot" style="width:100%;height:auto;box-shadow:var(--shadow-sm)">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4i</strong> Grok Bot</div>
+    </div>
+  </div>
+
+  <h2 data-sect style="font-size:19pt;letter-spacing:-0.02em;margin:0 0 3pt">Every Platform on the Watch</h2>
+  <p style="font-size:10.5pt;line-height:1.5;color:var(--color-neutral-700);margin:0 0 12pt">The same nine, translated to the round face. Where a platform has two windows the shorter one takes the outer arc; each arc is named on its own curve at the foot of the face, with the reset time reading Today or Tomorrow inside 48 hours.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16pt 14pt">
+    <div data-fig>
+      <img src="screenshots/w-4a.png" alt="Claude watch face" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4a</strong> Claude</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-4b.png" alt="Gemini watch face" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4b</strong> Gemini</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-4c.png" alt="Codex watch face" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4c</strong> Codex</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-4d.png" alt="Grok watch face" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4d</strong> Grok — segmented arc</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-4e.png" alt="Perplexity watch face" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4e</strong> Perplexity</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-4f.png" alt="Cursor watch face" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4f</strong> Cursor — near limit</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-4g.png" alt="GitHub Copilot watch face" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4g</strong> GitHub Copilot</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-4h.png" alt="Microsoft 365 watch face" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4h</strong> Microsoft 365 · work</div>
+    </div>
+    <div data-fig>
+      <img src="screenshots/w-4i.png" alt="Grok Bot watch face" style="width:100%;height:auto">
+      <div style="font-size:9pt;padding-top:5pt"><strong style="font-family:var(--font-heading)">4i</strong> Grok Bot — mark centred</div>
+    </div>
+  </div>
+
+  <h2 data-sect style="font-size:19pt;letter-spacing:-0.02em;margin:0 0 3pt">The Colour System</h2>
+  <p style="font-size:10.5pt;line-height:1.5;color:var(--color-neutral-700);margin:0 0 12pt">Each platform is a press ink, with a deeper step for the display figure so it holds on paper. Cyan is the only interactive colour; red appears only on breach and gold only on work accounts.</p>
+  <table class="table" style="font-size:10pt;width:100%">
+    <thead>
+      <tr><th style="padding:6pt 8pt 6pt 0;text-align:left">Role</th><th style="padding:6pt 8pt;text-align:left">Bar</th><th style="padding:6pt 8pt;text-align:left">Figure</th><th style="padding:6pt 0 6pt 8pt;text-align:left">Swatch</th></tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:5pt 8pt 5pt 0">Claude</td><td style="padding:5pt 8pt">#d97757</td><td style="padding:5pt 8pt">#b8552f</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#d97757"></span></td></tr>
+      <tr><td style="padding:5pt 8pt 5pt 0">Gemini</td><td style="padding:5pt 8pt">#4285f4</td><td style="padding:5pt 8pt">#2f66c9</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#4285f4"></span></td></tr>
+      <tr><td style="padding:5pt 8pt 5pt 0">Codex</td><td style="padding:5pt 8pt">#10a37f</td><td style="padding:5pt 8pt">#0b7d61</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#10a37f"></span></td></tr>
+      <tr><td style="padding:5pt 8pt 5pt 0">Grok</td><td style="padding:5pt 8pt">#201e1d</td><td style="padding:5pt 8pt">#201e1d</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#201e1d"></span></td></tr>
+      <tr><td style="padding:5pt 8pt 5pt 0">Perplexity</td><td style="padding:5pt 8pt">#20808d</td><td style="padding:5pt 8pt">#196a75</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#20808d"></span></td></tr>
+      <tr><td style="padding:5pt 8pt 5pt 0">Cursor</td><td style="padding:5pt 8pt">#d1201a</td><td style="padding:5pt 8pt">#8f1410</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#d1201a"></span></td></tr>
+      <tr><td style="padding:5pt 8pt 5pt 0">GitHub Copilot</td><td style="padding:5pt 8pt">#6e40c9</td><td style="padding:5pt 8pt">#5a2fa8</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#6e40c9"></span></td></tr>
+      <tr><td style="padding:5pt 8pt 5pt 0">Microsoft 365</td><td style="padding:5pt 8pt">#0f6cbd</td><td style="padding:5pt 8pt">#0b5699</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#0f6cbd"></span></td></tr>
+      <tr><td style="padding:5pt 8pt 5pt 0">Breach only</td><td style="padding:5pt 8pt">#d92b1f</td><td style="padding:5pt 8pt">#a81c13</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#d92b1f"></span></td></tr>
+      <tr><td style="padding:5pt 8pt 5pt 0">Work mark</td><td style="padding:5pt 8pt">#8a6a12</td><td style="padding:5pt 8pt">#8a6a12</td><td style="padding:5pt 0 5pt 8pt"><span style="display:block;width:60pt;height:11pt;background:#8a6a12"></span></td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:14pt;letter-spacing:-0.015em;margin:22pt 0 6pt">Build notes</h3>
+  <p data-lede style="font-size:10.5pt;line-height:1.55;margin:0 0 8pt">The phone screens are Compose with Material 3 — tabs scroll, the plus stays pinned. The watch app is Wear Compose, but the two tiles are ProtoLayout, a declarative subset where arcs are <em>ArcLine</em> rather than a Composable.</p>
+  <p data-lede style="font-size:10.5pt;line-height:1.55;margin:0">The supplied skin is a 454px round AVD: point an emulator at it to preview at true size. Hand over this record and the assets rather than the board's markup — Compose is a different layout model, and a port fights it.</p>
+
+</doc-page>
+</x-dc>
+</body>
+</html>

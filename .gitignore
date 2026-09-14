@@ -1,0 +1,63 @@
+*.iml
+.gradle
+.kotlin/
+/local.properties
+local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+**/build/
+.kotlin/
+/captures
+.externalNativeBuild
+.cxx
+
+# Build products
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Signing — never commit
+*.jks
+*.keystore
+
+# Accidental Obsidian vault on the Android project (the real vault is AI-Sub-Use-Monitor-Vault/)
+/.obsidian/
+
+# Vault: machine session only. Keep core-plugins.json and the rest.
+AI-Sub-Use-Monitor-Vault/.obsidian/workspace.json
+AI-Sub-Use-Monitor-Vault/.obsidian/workspace-mobile.json
+
+# Duplicate of the extracted 10 UI board folders
+AI-Sub-Use-Monitor-Vault/10 UI/AI Platform usage tracker-handoff.zip
+AI-Sub-Use-Monitor-Vault/10 UI/AI Platform usage tracker.zip
+
+# Device captures Eric drops in for agents. Recordings are tens of MB; never commit.
+AI-Sub-Use-Monitor-Vault/AndroidStudioScreenshots/
+
+# Raw Grok drop folder. File findings into 20 Research/ platform notes; do not PR this directory.
+AI-Sub-Use-Monitor-Vault/20 Research/Notes from Grok Bot/
+
+# Agent scratch dumps. File anything durable into 90 Agents/; do not commit this directory.
+AI-Sub-Use-Monitor-Vault/Claude outputs/
+
+# IDE machine state (deployment targets include local AVD paths)
+.idea/
+
+# Local environment and credential/export formats
+.env
+.env.*
+*.har
+*.pcap
+*.pcapng
+*.hprof
+
+# Session/cookie dumps if someone exports them next to the project
+cookies.txt
+*Cookie*.txt
